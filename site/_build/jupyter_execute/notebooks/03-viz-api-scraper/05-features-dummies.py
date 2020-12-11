@@ -186,32 +186,3 @@ def pre_process_dataframe(df, numeric, categorical, missing=np.nan, missing_num=
      return pd.DataFrame(preprocessor.fit_transform(df))
 df=pre_process_dataframe(features, features_num, features_cat )
 df
-
-features
-
-df.isna().sum()
-
-imp=SimpleImputer(strategy="most_frequent")
-
-
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.compose import make_column_transformer
-from sklearn.impute import SimpleImputer
-from sklearn.pipeline import Pipeline, make_pipeline
-missing_values = ['Age','Embarked']
-features_num = ['Fare', 'Age']
-features_cat = ['Pclass', 'Sex', 'SibSp', 'Parch', 'Embarked']
-
-cat_preprocess = make_pipeline(SimpleImputer(strategy="most_frequent"), OneHotEncoder())
-
-
-preprocessor = make_column_transformer(
-    (SimpleImputer(strategy="most_frequent"), missing_values),
-    (StandardScaler(), features_num),
-    (cat_preprocess, features_cat),
-)
-
-X = preprocessor.fit_transform(features)
-#X_valid = preprocessor.transform(X_valid)
-
-pd.DataFrame(X).head()

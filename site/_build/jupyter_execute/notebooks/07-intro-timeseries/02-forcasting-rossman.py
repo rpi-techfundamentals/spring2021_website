@@ -14,7 +14,7 @@ This is an example of a panel dataset, measuring multiple stores over time.  You
 2. Understand the pros and cons of various TSA methods, including differentiating between linear and non-linear methods.
 3. Apply the facebook prophet model and analyze the results on given rossman store data.
 
-## Sections
+# Sections
 - - - -- - - - - - - - - - - - - - -- - - - -
 1. [ Problem Description](#scrollTo=O28Uk6v0KxS-)
 2. Exploratory Data Analysis
