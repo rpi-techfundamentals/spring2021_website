@@ -1,0 +1,1111 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>29. Coronavirus Data Modeling &#8212; MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="30. Time Series Data" href="../07-intro-timeseries/01-time-series.html" />
+    <link rel="prev" title="28. k-Means Clustering" href="03-kmeans.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to Introduction to Machine Learning Applications
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  OVERVIEW
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/schedule.html">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/preparation.html">
+   Before Class
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/in_class.html">
+   In Class
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/assignments.html">
+   Assignments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/capstone.html">
+   <strong>
+    The MS Business Analytics Capstone Course
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/capstone.html#prior-examples">
+   Prior Examples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/capstone.html#faculty">
+   Faculty
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  SESSIONS
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session1.html">
+   1. Course Overview &amp; Introduction to the Data Science Lifecycle (08/31)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session2.html">
+   2. Python Basics (09/03)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session3.html">
+   3. Python Basics  (First in Person Class, Tuesday follow Monday Schedule) (09/08)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session4.html">
+   4. Python conditionals, loops, functions, aggregating.  (09/10)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session5.html">
+   5. Python conditionals, loops, functions, aggregating (continued)  (09/14)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session6.html">
+   6. Python visualization, data manipulation , and feature creation. (09/17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session7.html">
+   7. Python visualization, data manipulation , and feature creation (continued) (09/21)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session8.html">
+   8. Overview of Modeling (09/24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session9.html">
+   9. Overview of Classification (09/28)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session10.html">
+   10. Overview of Classification (10/01)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session11.html">
+   11. Python and Regression (10/05)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session12.html">
+   12. Python and Regression (10/08)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session13.html">
+   13. Unsupervised Models (10/15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session14.html">
+   14. Midterm Exam (10/19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session15.html">
+   15. Time Series Analysis  (10/22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session16.html">
+   16. Time Series Analysis (10/26)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session16.html">
+   16. Time Series Analysis (10/26)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session17.html">
+   17. Text and NLP (10/29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session18.html">
+   18. Text and NLP (11/02)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session19.html">
+   19. Introduction to Deep Learning (11/05)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session19.html">
+   19. Introduction to Deep Learning (11/05)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session20.html">
+   20. Introduction to Deep Learning (11/09)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session21.html">
+   21. Introduction to Deep Learning (11/12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session22.html">
+   22. Image Data and Deep Learning (11/16)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session23.html">
+   23. NLP and Deep Learning (11/19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session24.html">
+   24. R and Machine Learning (11/23)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session25.html">
+   25. Big Data (11/30)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session26.html">
+   26. Open project questions.  (12/03)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session27.html">
+   27. Final Presentations (12/07)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session28.html">
+   28. Final Presentations  (12/10)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session29.html">
+   29. Final Exam (12/15)
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  NOTEBOOKS
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-intro-python/01-python-overview.html">
+   1. Overview of Python Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-intro-python/02-datastructures.html">
+   2. Introduction Datastructures (Varibles, Lists, Dictionaries, and Sets)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-intro-python/03-numpy.html">
+   3. Overview of Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-intro-python/04-pandas.html">
+   4. Introduction to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-intro-python/01-conditionals-loops.html">
+   5. Conditional Statements and Loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-intro-python/02-functions.html">
+   6. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-intro-python/03-null-values.html">
+   7. Null Values
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-intro-python/04-groupby.html">
+   8. Groupby and Pivot Tables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-intro-python/04-pivottable.html">
+   9. More Pivottables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-intro-python/05-kaggle-baseline.html">
+   10. Kaggle Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-viz-api-scraper/01-intro-api-twitter.html">
+   11. Introduction to APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-viz-api-scraper/02-intro-python-webmining.html">
+   12. Web Mining
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-viz-api-scraper/03-visualization-python-seaborn.html">
+   13. Introduction to Seaborn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-viz-api-scraper/04-strings-regular-expressions.html">
+   14. String Manipulation and Regular Expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-viz-api-scraper/05-features-dummies.html">
+   15. Feature Extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-viz-api-scraper/05-features-dummies.html#feature-preprocessing-with-scikit-learn">
+   16. Feature Preprocessing with Scikit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-viz-api-scraper/06-matplotlib.html">
+   17. MatplotLab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-intro-modeling/01-neural-networks.html">
+   18. Neural Networks and the Simplist XOR Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-intro-modeling/02-train-test-split.html">
+   19. Train Test Splits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-intro-modeling/03-intro-logistic-knn.html">
+   20. Classification with Scikit-learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-intro-modeling/04-knn.html">
+   21. KNN
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-regression/01-matrix-regression-gradient-decent-python.html">
+   22. Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-regression/02-regression-boston-housing-python.html">
+   23. Boston Housing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-regression/03-ridge-lasso-python.html">
+   24. Lasso Ridge Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-regression/04-stats-models.html">
+   25. Regression with Stats-Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-introduction-pca.html">
+   26. Introduction to Principal Component Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-pca2.html">
+   27. In Depth: Principal Component Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-kmeans.html">
+   28. k-Means Clustering
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   29. Coronavirus Data Modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07-intro-timeseries/01-time-series.html">
+   30. Time Series Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07-intro-timeseries/02-forcasting-rossman.html">
+   31. Panel Data vs Time Series Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08-intro-nlp/01-titanic-features.html">
+   32. Basic Text Feature Creation in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08-intro-nlp/02-corpus-simple.html">
+   33. Introduction to Text Mining in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08-intro-nlp/03-scikit-learn-text.html">
+   34. Bag-of-Words Using Scikit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08-intro-nlp/04-what-cooking-python.html">
+   35. What’s Cooking in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08-intro-nlp/05-bag-popcorn-bag-words.html">
+   36. Bag of Words
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08-intro-nlp/07-fastai-imdb.html">
+   37. IMDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/00-neural-networks.html">
+   38. Neural Networks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/00-evaluation.html">
+   39. Evaluation of Classifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/01-tensorflow.html">
+   40. Tensorflow Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/01-tensorflow.html#tensorflow-tabular-data">
+   41. Tensorflow Tabular Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/01-tensorflow.html#tensorflow-nlp">
+   42. Tensorflow NLP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/03-pytorch-iris.html">
+   43. Revisiting IRIS with PyTorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/04-pytorch-explainer.html">
+   44. PyTorch Deep Explainer MNIST example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/05-pytorch-mnist.html">
+   45. PyTorch Deep Explainer MNIST example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/06-regression-bh-pytorch.html">
+   46. Revisting Boston Housing with Pytorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/07-titanic-fastai.html">
+   47. Titanic Fastai
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/08-ludwig.html">
+   48. Ludwig
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10-big-data/01-intro-mapreduce.html">
+   49. Introduction to Map Reduce
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10-big-data/02-intro-spark.html">
+   50. Introduction to Spark
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  ASSIGNMENT STARTERS
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/assignment1/01starter.html">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/assignment2/hm.html">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/assignment3/hm.html">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/assignment4/hm.html">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/assignment5/hm.html">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/assignment6/hm.html">
+   Assignment 6
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Deep Learning
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/ageron/handson-ml2">
+   Hands On Machine Learning with Python
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/fastai/fastbook">
+   Fast.ai Book
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.tensorflow.org/tutorials">
+   Tensorflow Tutorials
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://pytorch.org/tutorials/">
+   Pytorch Tutorials
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.kaggle.com/learn/intro-to-deep-learning">
+   Kaggle Introduction to Deep Learning Course
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  IMPORTANT LINKS
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://lms.rpi.edu/">
+   RPI LMS
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://eurl.io/#KijTiY1Sa">
+   Webex Teams Discussion
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://eurl.io/#8TF4_qsE9">
+   Webex Teams Homework
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rensselaer.webex.com/meet/kuruzj">
+   Prof Kuruzovich Class Link
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rpi.box.com/s/g3wsswc1gvqxvamkuxee77eb4qugizvj">
+   Box File link (Sec01)
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rensselaer.webex.com/meet/morgat5">
+   Prof Morgan Class Link
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rpi.box.com/s/qdd5wlo58f5ludkxmb4yd17mgnyc0sbh">
+   Box File link (Sec02)
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/06-unsupervised/04-covid19.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/rpi-techfundamentals/introml_website_fall_2020"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/rpi-techfundamentals/introml_website_fall_2020/issues/new?title=Issue%20on%20page%20%2Fnotebooks/06-unsupervised/04-covid19.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/rpi-techfundamentals/introml_website_fall_2020/blob/master/site/notebooks/06-unsupervised/04-covid19.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   29.1. Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-assignment">
+   29.2. The Assignment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preprocessing">
+   29.3. Preprocessing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#missing-values-and-data">
+   29.4. Missing Values and data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clustering">
+   29.5. Clustering
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-elbow-method">
+   29.6. The Elbow Method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#looks-like-we-can-justify-5-clusters">
+   29.7. Looks like we can justify 5 clusters.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#looks-like-they-are-mostly-0s-let-s-merge-our-data-back-together-so-we-could-get-a-clearer-picture">
+   29.8. Looks like they are mostly 0s.  Let’s merge our data back together so we could get a clearer picture.
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="coronavirus-data-modeling">
+<h1><span class="section-number">29. </span>Coronavirus Data Modeling<a class="headerlink" href="#coronavirus-data-modeling" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="background">
+<h2><span class="section-number">29.1. </span>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>From Wikipedia…</p>
+<p>“The 2019–20 coronavirus pandemic is an ongoing global pandemic of coronavirus disease 2019 (COVID-19) caused by the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). The virus was first reported in Wuhan, Hubei, China, in December 2019.[5][6] On March 11, 2020, the World Health Organization declared the outbreak a pandemic.[7] As of March 12, 2020, over 134,000 cases have been confirmed in more than 120 countries and territories, with major outbreaks in mainland China, Italy, South Korea, and Iran.[3] Around 5,000 people, with about 3200 from China, have died from the disease. More than 69,000 have recovered.[4]</p>
+<p>The virus spreads between people in a way similar to influenza, via respiratory droplets from coughing.[8][9][10] The time between exposure and symptom onset is typically five days, but may range from two to fourteen days.[10][11] Symptoms are most often fever, cough, and shortness of breath.[10][11] Complications may include pneumonia and acute respiratory distress syndrome. There is currently no vaccine or specific antiviral treatment, but research is ongoing. Efforts are aimed at managing symptoms and supportive therapy. Recommended preventive measures include handwashing, maintaining distance from other people (particularly those who are sick), and monitoring and self-isolation for fourteen days for people who suspect they are infected.[9][10][12]</p>
+<p>Public health responses around the world have included travel restrictions, quarantines, curfews, event cancellations, and school closures. They have included the quarantine of all of Italy and the Chinese province of Hubei; various curfew measures in China and South Korea;[13][14][15] screening methods at airports and train stations;[16] and travel advisories regarding regions with community transmission.[17][18][19][20] Schools have closed nationwide in 22 countries or locally in 17 countries, affecting more than 370 million students.[21]”</p>
+<p>https://en.wikipedia.org/wiki/2019–20_coronavirus_pandemic</p>
+<p>For ADDITIONAL BACKGROUND, see JHU’s COVID-19 Resource Center:
+https://coronavirus.jhu.edu/</p>
+<p>#RPI IDEA</p>
+<p>Check out these resources that IDEA has put together.</p>
+<p>https://idea.rpi.edu/covid-19-resources</p>
+</div>
+<div class="section" id="the-assignment">
+<h2><span class="section-number">29.2. </span>The Assignment<a class="headerlink" href="#the-assignment" title="Permalink to this headline">¶</a></h2>
+<p>Our lives have been seriously disrupted by the coronavirus pandemic, and there is every indication that this is going to be a global event which requires colloration in a global community to solve.  Studying the data provides an opportunity to connect the pandemic to the variety of themes from the class.</p>
+<p>A number of folks have already been examining this data.
+https://ourworldindata.org/coronavirus-source-data</p>
+<ol class="simple">
+<li><p>Discussion.  What is the role of open data?  Why is it important in this case?</p></li>
+</ol>
+<ol class="simple">
+<li><p>Read this.
+https://medium.com/&#64;tomaspueyo/coronavirus-act-today-or-people-will-die-f4d3d9cd99ca</p></li>
+</ol>
+<p>What is the role of bias in the data?  Identify 2 different ways that the data could be biased.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Load some data</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://github.com/CSSEGISandData/COVID-19/raw/master/csse_covid_19_data/csse_covid_19_daily_reports/10-21-2020.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="preprocessing">
+<h2><span class="section-number">29.3. </span>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">¶</a></h2>
+<p>We have to deal with missing values first.</p>
+<p>First let’s check the missing values for each column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Province_State&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">(),:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Province_State&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">(),:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="missing-values-and-data">
+<h2><span class="section-number">29.4. </span>Missing Values and data<a class="headerlink" href="#missing-values-and-data" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>How might we deal with missing values? How is the data structured such that aggregation might be relevant.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Note the country is then the index here. </span>
+<span class="n">country</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Confirmed&#39;</span><span class="p">,</span>	<span class="s1">&#39;Deaths&#39;</span><span class="p">,</span>	<span class="s1">&#39;Recovered&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">,</span>  <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">country</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="clustering">
+<h2><span class="section-number">29.5. </span>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h2>
+<p>Here is and example of the elbow method, which is used to understand the number of clusters.</p>
+<p>https://scikit-learn.org/stable/modules/clustering.html#k-means</p>
+<p>The K-means algorithm aims to choose centroids that minimise the inertia, or within-cluster sum-of-squares criterion.</p>
+<p>By looking at the total inertia at different numbers of clusters, we can get an idea of the appropriate number of clusters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#This indicates the </span>
+
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="n">sum_sq</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">30</span><span class="p">):</span>
+    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span> <span class="o">=</span> <span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">country</span><span class="p">)</span>
+    <span class="c1"># Inertia: Sum of distances of samples to their closest cluster center</span>
+    <span class="n">sum_sq</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">inertia_</span>
+  
+  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#ineria at different levels of K</span>
+<span class="n">sum_sq</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-elbow-method">
+<h2><span class="section-number">29.6. </span>The Elbow Method<a class="headerlink" href="#the-elbow-method" title="Permalink to this headline">¶</a></h2>
+<p>Not a type of criteria like p&lt;0.05, but the elbow method you look for where the change in the variance explained from adding more clusters drops extensively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot elbow graph</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">sum_sq</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span>
+         <span class="nb">list</span><span class="p">(</span><span class="n">sum_sq</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span>
+        <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span>
+        <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;H&#39;</span><span class="p">,</span>
+        <span class="n">markersize</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">markerfacecolor</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="looks-like-we-can-justify-5-clusters">
+<h2><span class="section-number">29.7. </span>Looks like we can justify 5 clusters.<a class="headerlink" href="#looks-like-we-can-justify-5-clusters" title="Permalink to this headline">¶</a></h2>
+<p>See how adding the 5th doesn’t really impact the total variance as much?  It might be interesting to do the analysis both at 4 and 5 and try to interpret.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">country</span><span class="p">)</span>
+<span class="n">country</span><span class="p">[</span><span class="s1">&#39;y_kmeans&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">country</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="looks-like-they-are-mostly-0s-let-s-merge-our-data-back-together-so-we-could-get-a-clearer-picture">
+<h2><span class="section-number">29.8. </span>Looks like they are mostly 0s.  Let’s merge our data back together so we could get a clearer picture.<a class="headerlink" href="#looks-like-they-are-mostly-0s-let-s-merge-our-data-back-together-so-we-could-get-a-clearer-picture" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loc</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Lat&#39;</span><span class="p">,</span><span class="s1">&#39;Long_&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;Country_Region&#39;</span><span class="p">,</span>  <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="c1">#loc[&#39;cluster&#39;]=y_kmeans</span>
+<span class="n">loc</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alldata</span><span class="o">=</span><span class="n">country</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#join in our dataframes</span>
+
+<span class="n">alldata</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;alldata.csv&quot;</span><span class="p">)</span>  
+<span class="n">alldata</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Alldata</span>
+<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">files</span>
+<span class="n">files</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;alldata.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alldata</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;cluster&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>#How do we interpret our clusters?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alldata</span><span class="p">[</span><span class="n">alldata</span><span class="o">.</span><span class="n">cluster</span><span class="o">!=</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Details</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>  <span class="c1">#this allows us to see all rows. </span>
+<span class="n">alldata</span><span class="p">[</span><span class="n">alldata</span><span class="o">.</span><span class="n">cluster</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/06-unsupervised"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="03-kmeans.html" title="previous page"><span class="section-number">28. </span>k-Means Clustering</a>
+    <a class='right-next' id="next-link" href="../07-intro-timeseries/01-time-series.html" title="next page"><span class="section-number">30. </span>Time Series Data</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jason Kuruzovich<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-32817743-6', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

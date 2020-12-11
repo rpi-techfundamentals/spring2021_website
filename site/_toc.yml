@@ -1,0 +1,146 @@
+- file: intro
+- chapters:
+  - file: content/schedule
+  - file: content/syllabus
+  - file: content/preparation
+  - file: content/in_class
+  - file: content/assignments
+  - file: content/capstone
+  part: OVERVIEW
+- chapters:
+  - file: sessions/session1
+  - file: sessions/session2
+  - file: sessions/session3
+  - file: sessions/session4
+  - file: sessions/session5
+  - file: sessions/session6
+  - file: sessions/session7
+  - file: sessions/session8
+  - file: sessions/session9
+  - file: sessions/session10
+  - file: sessions/session11
+  - file: sessions/session12
+  - file: sessions/session13
+  - file: sessions/session14
+  - file: sessions/session15
+  - file: sessions/session16
+  - file: sessions/session16
+  - file: sessions/session17
+  - file: sessions/session18
+  - file: sessions/session19
+  - file: sessions/session19
+  - file: sessions/session20
+  - file: sessions/session21
+  - file: sessions/session22
+  - file: sessions/session23
+  - file: sessions/session24
+  - file: sessions/session25
+  - file: sessions/session26
+  - file: sessions/session27
+  - file: sessions/session28
+  - file: sessions/session29
+  numbered: true
+  part: SESSIONS
+- part: NOTEBOOKS
+  numbered: true
+  chapters:
+  - file: notebooks/01-intro-python/01-python-overview
+  - file: notebooks/01-intro-python/02-datastructures
+  - file: notebooks/01-intro-python/03-numpy
+  - file: notebooks/01-intro-python/04-pandas
+  - file: notebooks/02-intro-python/01-conditionals-loops
+  - file: notebooks/02-intro-python/02-functions
+  - file: notebooks/02-intro-python/03-null-values
+  - file: notebooks/02-intro-python/04-groupby
+  - file: notebooks/02-intro-python/04-pivottable
+  - file: notebooks/02-intro-python/05-kaggle-baseline
+  #New
+  - file: notebooks/03-viz-api-scraper/01-intro-api-twitter
+  - file: notebooks/03-viz-api-scraper/02-intro-python-webmining
+  - file: notebooks/03-viz-api-scraper/03-visualization-python-seaborn
+  - file: notebooks/03-viz-api-scraper/04-strings-regular-expressions
+  - file: notebooks/03-viz-api-scraper/05-features-dummies
+  - file: notebooks/03-viz-api-scraper/06-matplotlib
+  - file: notebooks/04-intro-modeling/01-neural-networks
+  - file: notebooks/04-intro-modeling/02-train-test-split
+  - file: notebooks/04-intro-modeling/03-intro-logistic-knn
+  - file: notebooks/04-intro-modeling/04-knn
+  - file: notebooks/04-intro-modeling/05-svm-roc
+  - file: notebooks/05-regression/01-matrix-regression-gradient-decent-python
+  - file: notebooks/05-regression/02-regression-boston-housing-python
+  - file: notebooks/05-regression/03-ridge-lasso-python
+  - file: notebooks/05-regression/04-stats-models
+  - file: notebooks/06-unsupervised/01-introduction-pca
+  - file: notebooks/06-unsupervised/02-pca2
+  - file: notebooks/06-unsupervised/03-kmeans
+  - file: notebooks/06-unsupervised/04-covid19
+  - file: notebooks/07-intro-timeseries/01-time-series
+  - file: notebooks/07-intro-timeseries/02-forcasting-rossman
+  - file: notebooks/08-intro-nlp/01-titanic-features
+  - file: notebooks/08-intro-nlp/02-corpus-simple
+  - file: notebooks/08-intro-nlp/03-scikit-learn-text
+  - file: notebooks/08-intro-nlp/04-what-cooking-python
+  - file: notebooks/08-intro-nlp/05-bag-popcorn-bag-words
+  - file: notebooks/08-intro-nlp/07-fastai-imdb
+  - file: notebooks/09-deep-learning1/00-neural-networks
+  - file: notebooks/09-deep-learning1/00-evaluation
+  - file: notebooks/09-deep-learning1/01-tensorflow
+  - file: notebooks/09-deep-learning1/03-pytorch-iris
+  - file: notebooks/09-deep-learning1/04-covnet-tutuorial
+  - file: notebooks/09-deep-learning1/04-pytorch-explainer
+  - file: notebooks/09-deep-learning1/05-pytorch-mnist
+  - file: notebooks/09-deep-learning1/06-regression-bh-pytorch
+  - file: notebooks/09-deep-learning1/07-titanic-fastai
+  - file: notebooks/09-deep-learning1/08-ludwig
+  - file: notebooks/10-big-data/01-intro-mapreduce
+  - file: notebooks/10-big-data/02-intro-spark
+
+- part: ASSIGNMENT STARTERS
+  numbered: false
+  chapters:
+  - file: assignments/assignment1/01starter
+  - file: assignments/assignment2/hm
+  - file: assignments/assignment3/hm
+  - file: assignments/assignment4/hm
+  - file: assignments/assignment5/hm
+  - file: assignments/assignment6/hm
+- part: Deep Learning
+  numbered: true
+  chapters:
+  - url: https://github.com/ageron/handson-ml2
+    title: Hands On Machine Learning with Python
+  - url: https://github.com/fastai/fastbook
+    title: Fast.ai Book
+  - url: https://www.tensorflow.org/tutorials
+    title: Tensorflow Tutorials
+  - url: https://pytorch.org/tutorials/
+    title: Pytorch Tutorials
+  - url: https://www.kaggle.com/learn/intro-to-deep-learning
+    title: Kaggle Introduction to Deep Learning Course
+
+  #- file: notebooks/book/tools_numpy
+  #- file: notebooks/book/tools_pandas
+  #- file: notebooks/book/02_end_to_end_machine_learning_project
+  #- file: notebooks/book/10_neural_nets_with_keras
+  #- file: notebooks/book/11_training_deep_neural_networks
+  #- file: notebooks/book/12_custom_models_and_training_with_tensorflow
+  #- file: notebooks/book/13_loading_and_preprocessing_data
+  #- file: notebooks/book/13_loading_and_preprocessing_data
+
+- part: IMPORTANT LINKS
+  numbered: true
+  chapters:
+  - url: https://lms.rpi.edu/
+    title: RPI LMS
+  - url: https://eurl.io/#KijTiY1Sa
+    title: Webex Teams Discussion
+  - url: https://eurl.io/#8TF4_qsE9
+    title: Webex Teams Homework
+  - url: https://rensselaer.webex.com/meet/kuruzj
+    title: Prof Kuruzovich Class Link
+  - url: https://rpi.box.com/s/g3wsswc1gvqxvamkuxee77eb4qugizvj
+    title: Box File link (Sec01)
+  - url: https://rensselaer.webex.com/meet/morgat5
+    title: Prof Morgan Class Link
+  - url: https://rpi.box.com/s/qdd5wlo58f5ludkxmb4yd17mgnyc0sbh
+    title: Box File link (Sec02)

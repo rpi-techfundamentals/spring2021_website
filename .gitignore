@@ -1,0 +1,26 @@
+# Python
+*.pyc
+.cache
+.coverage
+*.egg-info
+build
+*pycache*
+*.ipynb_checkpoints/*
+*checkpoint*
+/tests/tmp/*
+~$*
+# IDEs and editors
+*.swp
+.vscode
+.idea
+/carme-env
+
+# Other
+.DS_Store
+*.notes
+.directory
+mini_book/_build/*
+.ipynb_checkpoints
+.DS_Store
+__pycache__/
+*.db

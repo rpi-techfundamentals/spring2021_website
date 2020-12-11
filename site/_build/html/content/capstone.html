@@ -1,0 +1,968 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>The MS Business Analytics Capstone Course &#8212; MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Course Overview &amp; Introduction to the Data Science Lifecycle (08/31)" href="../sessions/session1.html" />
+    <link rel="prev" title="Assignments" href="assignments.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to Introduction to Machine Learning Applications
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  OVERVIEW
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="schedule.html">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="preparation.html">
+   Before Class
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="in_class.html">
+   In Class
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignments.html">
+   Assignments
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   <strong>
+    The MS Business Analytics Capstone Course
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#prior-examples">
+   Prior Examples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#faculty">
+   Faculty
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  SESSIONS
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session1.html">
+   1. Course Overview &amp; Introduction to the Data Science Lifecycle (08/31)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session2.html">
+   2. Python Basics (09/03)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session3.html">
+   3. Python Basics  (First in Person Class, Tuesday follow Monday Schedule) (09/08)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session4.html">
+   4. Python conditionals, loops, functions, aggregating.  (09/10)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session5.html">
+   5. Python conditionals, loops, functions, aggregating (continued)  (09/14)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session6.html">
+   6. Python visualization, data manipulation , and feature creation. (09/17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session7.html">
+   7. Python visualization, data manipulation , and feature creation (continued) (09/21)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session8.html">
+   8. Overview of Modeling (09/24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session9.html">
+   9. Overview of Classification (09/28)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session10.html">
+   10. Overview of Classification (10/01)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session11.html">
+   11. Python and Regression (10/05)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session12.html">
+   12. Python and Regression (10/08)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session13.html">
+   13. Unsupervised Models (10/15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session14.html">
+   14. Midterm Exam (10/19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session15.html">
+   15. Time Series Analysis  (10/22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session16.html">
+   16. Time Series Analysis (10/26)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session16.html">
+   16. Time Series Analysis (10/26)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session17.html">
+   17. Text and NLP (10/29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session18.html">
+   18. Text and NLP (11/02)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session19.html">
+   19. Introduction to Deep Learning (11/05)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session19.html">
+   19. Introduction to Deep Learning (11/05)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session20.html">
+   20. Introduction to Deep Learning (11/09)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session21.html">
+   21. Introduction to Deep Learning (11/12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session22.html">
+   22. Image Data and Deep Learning (11/16)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session23.html">
+   23. NLP and Deep Learning (11/19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session24.html">
+   24. R and Machine Learning (11/23)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session25.html">
+   25. Big Data (11/30)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session26.html">
+   26. Open project questions.  (12/03)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session27.html">
+   27. Final Presentations (12/07)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session28.html">
+   28. Final Presentations  (12/10)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sessions/session29.html">
+   29. Final Exam (12/15)
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  NOTEBOOKS
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/01-intro-python/01-python-overview.html">
+   1. Overview of Python Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/01-intro-python/02-datastructures.html">
+   2. Introduction Datastructures (Varibles, Lists, Dictionaries, and Sets)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/01-intro-python/03-numpy.html">
+   3. Overview of Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/01-intro-python/04-pandas.html">
+   4. Introduction to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/02-intro-python/01-conditionals-loops.html">
+   5. Conditional Statements and Loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/02-intro-python/02-functions.html">
+   6. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/02-intro-python/03-null-values.html">
+   7. Null Values
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/02-intro-python/04-groupby.html">
+   8. Groupby and Pivot Tables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/02-intro-python/04-pivottable.html">
+   9. More Pivottables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/02-intro-python/05-kaggle-baseline.html">
+   10. Kaggle Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/03-viz-api-scraper/01-intro-api-twitter.html">
+   11. Introduction to APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/03-viz-api-scraper/02-intro-python-webmining.html">
+   12. Web Mining
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/03-viz-api-scraper/03-visualization-python-seaborn.html">
+   13. Introduction to Seaborn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/03-viz-api-scraper/04-strings-regular-expressions.html">
+   14. String Manipulation and Regular Expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/03-viz-api-scraper/05-features-dummies.html">
+   15. Feature Extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/03-viz-api-scraper/05-features-dummies.html#feature-preprocessing-with-scikit-learn">
+   16. Feature Preprocessing with Scikit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/03-viz-api-scraper/06-matplotlib.html">
+   17. MatplotLab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/04-intro-modeling/01-neural-networks.html">
+   18. Neural Networks and the Simplist XOR Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/04-intro-modeling/02-train-test-split.html">
+   19. Train Test Splits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/04-intro-modeling/03-intro-logistic-knn.html">
+   20. Classification with Scikit-learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/04-intro-modeling/04-knn.html">
+   21. KNN
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/05-regression/01-matrix-regression-gradient-decent-python.html">
+   22. Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/05-regression/02-regression-boston-housing-python.html">
+   23. Boston Housing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/05-regression/03-ridge-lasso-python.html">
+   24. Lasso Ridge Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/05-regression/04-stats-models.html">
+   25. Regression with Stats-Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/06-unsupervised/01-introduction-pca.html">
+   26. Introduction to Principal Component Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/06-unsupervised/02-pca2.html">
+   27. In Depth: Principal Component Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/06-unsupervised/03-kmeans.html">
+   28. k-Means Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/06-unsupervised/04-covid19.html">
+   29. Coronavirus Data Modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/07-intro-timeseries/01-time-series.html">
+   30. Time Series Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/07-intro-timeseries/02-forcasting-rossman.html">
+   31. Panel Data vs Time Series Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/08-intro-nlp/01-titanic-features.html">
+   32. Basic Text Feature Creation in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/08-intro-nlp/02-corpus-simple.html">
+   33. Introduction to Text Mining in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/08-intro-nlp/03-scikit-learn-text.html">
+   34. Bag-of-Words Using Scikit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/08-intro-nlp/04-what-cooking-python.html">
+   35. What’s Cooking in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/08-intro-nlp/05-bag-popcorn-bag-words.html">
+   36. Bag of Words
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/08-intro-nlp/07-fastai-imdb.html">
+   37. IMDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/09-deep-learning1/00-neural-networks.html">
+   38. Neural Networks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/09-deep-learning1/00-evaluation.html">
+   39. Evaluation of Classifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/09-deep-learning1/01-tensorflow.html">
+   40. Tensorflow Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/09-deep-learning1/01-tensorflow.html#tensorflow-tabular-data">
+   41. Tensorflow Tabular Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/09-deep-learning1/01-tensorflow.html#tensorflow-nlp">
+   42. Tensorflow NLP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/09-deep-learning1/03-pytorch-iris.html">
+   43. Revisiting IRIS with PyTorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/09-deep-learning1/04-pytorch-explainer.html">
+   44. PyTorch Deep Explainer MNIST example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/09-deep-learning1/05-pytorch-mnist.html">
+   45. PyTorch Deep Explainer MNIST example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/09-deep-learning1/06-regression-bh-pytorch.html">
+   46. Revisting Boston Housing with Pytorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/09-deep-learning1/07-titanic-fastai.html">
+   47. Titanic Fastai
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/09-deep-learning1/08-ludwig.html">
+   48. Ludwig
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/10-big-data/01-intro-mapreduce.html">
+   49. Introduction to Map Reduce
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/10-big-data/02-intro-spark.html">
+   50. Introduction to Spark
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  ASSIGNMENT STARTERS
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/assignment1/01starter.html">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/assignment2/hm.html">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/assignment3/hm.html">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/assignment4/hm.html">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/assignment5/hm.html">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/assignment6/hm.html">
+   Assignment 6
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Deep Learning
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/ageron/handson-ml2">
+   Hands On Machine Learning with Python
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/fastai/fastbook">
+   Fast.ai Book
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.tensorflow.org/tutorials">
+   Tensorflow Tutorials
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://pytorch.org/tutorials/">
+   Pytorch Tutorials
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.kaggle.com/learn/intro-to-deep-learning">
+   Kaggle Introduction to Deep Learning Course
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  IMPORTANT LINKS
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://lms.rpi.edu/">
+   RPI LMS
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://eurl.io/#KijTiY1Sa">
+   Webex Teams Discussion
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://eurl.io/#8TF4_qsE9">
+   Webex Teams Homework
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rensselaer.webex.com/meet/kuruzj">
+   Prof Kuruzovich Class Link
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rpi.box.com/s/g3wsswc1gvqxvamkuxee77eb4qugizvj">
+   Box File link (Sec01)
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rensselaer.webex.com/meet/morgat5">
+   Prof Morgan Class Link
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rpi.box.com/s/qdd5wlo58f5ludkxmb4yd17mgnyc0sbh">
+   Box File link (Sec02)
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/content/capstone.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/rpi-techfundamentals/introml_website_fall_2020"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/rpi-techfundamentals/introml_website_fall_2020/issues/new?title=Issue%20on%20page%20%2Fcontent/capstone.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analytics-and-business-process">
+   Analytics and Business Process
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#predictive-modeling">
+   Predictive Modeling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dashboarding">
+   Dashboarding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#business-understanding">
+   Business Understanding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prototyping">
+   Prototyping
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="the-ms-business-analytics-capstone-course">
+<h1><strong>The MS Business Analytics Capstone Course</strong><a class="headerlink" href="#the-ms-business-analytics-capstone-course" title="Permalink to this headline">¶</a></h1>
+<p><strong>The Business Analytics capstone is the culminating experience of our Masters Program in Business Analytics. Students work in small groups, supervised by an experienced Faculty member, to provide data insights to client organizations.</strong>
+​
+Skills you can expect to have within the team: Python, R, SQL, Statistics, Advanced analytics models and algorithms.</p>
+<p>Students will also have specialized knowledge in areas such as end-user software (e.g. SAS or SPSS Modeler); Natural Language Processing; or Econometrics (time series).</p>
+<p>Finally, being in the Masters program, our students have domain knowledge based on their undergraduate education and prior work experience. Many of our students come from an Engineering or a Finance background. We also have several student athletes.</p>
+<p>Generally, there are some core types of projects.</p>
+<div class="section" id="analytics-and-business-process">
+<h2>Analytics and Business Process<a class="headerlink" href="#analytics-and-business-process" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Have a business process some data but not sure of role of analytics?  The team can provide initial exploratory analysis to develop an approach that could have one of the above elements.</p></li>
+</ul>
+</div>
+<div class="section" id="predictive-modeling">
+<h2>Predictive Modeling<a class="headerlink" href="#predictive-modeling" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Prediction of a specific aspect of a business process.</p></li>
+</ul>
+</div>
+<div class="section" id="dashboarding">
+<h2>Dashboarding<a class="headerlink" href="#dashboarding" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Business visibility to key performance metrics.</p></li>
+</ul>
+</div>
+<div class="section" id="business-understanding">
+<h2>Business Understanding<a class="headerlink" href="#business-understanding" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Want to better understand a key aspect of a business process through analysis and visualization? Teams can generate business understanding.</p></li>
+</ul>
+</div>
+<div class="section" id="prototyping">
+<h2>Prototyping<a class="headerlink" href="#prototyping" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Developing an analytics product as a part of an existing product or services?  The team can prototype.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="prior-examples">
+<h1>Prior Examples<a class="headerlink" href="#prior-examples" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>These are some examples of projects from Spring 2019.</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Company Name</p></th>
+<th class="head"><p>Brief Description of Project (1-2 Sentences)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Mind Genomics</p></td>
+<td><p>Automating creation of categories and bag of words for each category for Nissan dealerships using text analysis, scraping, SPSS Modeler etc.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Outmatch</p></td>
+<td><p>Making improvement of the existing model to Outmatch to get a better prediction of the candidateâ€™s performance.  Our final goal is to select the proper combination of independent factors and modeling for better prediction.</p></td>
+</tr>
+<tr class="row-even"><td><p>ReceiptHQ</p></td>
+<td><p>Our Capstone Team works with a Troy based startup- ReceiptHQ. Through the use of Microsoft’s PowerBi, a dashboard is created for ReceiptHQ to help restaurant owners understand performance, gain insights, and take action.</p></td>
+</tr>
+<tr class="row-odd"><td><p>IBM CISL</p></td>
+<td><p>This project is studying the engagement between angel groups and startups on twitter. We are aiming at offering visualizations of aggregated data from CrunchBase and Twitter to help angel groups in CISL boardroom select startups as their investment.</p></td>
+</tr>
+<tr class="row-even"><td><p>Financial Institution</p></td>
+<td><p>The sales division has a subjective probability structure to understand the closing of new business deals, in the CRM system. Goal is to explore how effective the probability weightings are and the timings of the opportunities.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Auto/Mate</p></td>
+<td><p>We are using the sales force data of Auto/Mate to uncover how various operational and marketing decisions influence the customers to complete the deal. Also, our analysis uncovers the reasons why customers move on to the competitors and potential bottlenecks stopping the deal from happening successfully.</p></td>
+</tr>
+<tr class="row-even"><td><p>Cortex</p></td>
+<td><p>To provide a series of recommendations to Cortex regarding social media posts for the travel industry. These posts should recommend new areas (factors) that are not currently being used by the particular client. These recommendations should include, but are not limited to, colors used, post subjects, and objects.</p></td>
+</tr>
+<tr class="row-odd"><td><p>New York State-Department of Health</p></td>
+<td><p>We are analyzing how much people have to travel from one place to the other in order to health care access. The reasons behind the travel and the other hospitals that have been passed by while travelling are researched on.</p></td>
+</tr>
+<tr class="row-even"><td><p>CommerceHub</p></td>
+<td><p>Develop a methodology and algorithms to aggregate similar products in CommerceHubâ€™s order stream.</p></td>
+</tr>
+<tr class="row-odd"><td><p>deFacto Global</p></td>
+<td><p>Research and provide a robust implementation for new forecasting models into their current software.</p></td>
+</tr>
+<tr class="row-even"><td><p>Advantage Media Inc.</p></td>
+<td><p>We were able to improve AMI’s visualization and report creation by leveraging MS Power BI. A predictive model was also developed to help give added insight on the costs of spot rates throughout the year.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PUBG MadGlory</p></td>
+<td><p>The client, PUBG Madglory, produces a free-use API which allows community developers to access in-game player and match data. This project will provide critical educational literature and use cases for the PUBG API around data generation as well as opportunities to perform advanced modeling techniques on that player/match data.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="faculty">
+<h1>Faculty<a class="headerlink" href="#faculty" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="jason-kuruzovich">
+<h2><strong>Jason Kuruzovich</strong><a class="headerlink" href="#jason-kuruzovich" title="Permalink to this headline">¶</a></h2>
+<p>Jason is an academic entrepreneur that works on problems in which analytics can have a meaningful impact on the world. Jason teaches the Business Analytics Capstone course, where over the past 3 years he has worked with students on over 20 company projects as part of the RPI MS Business Analytics program (ranked 3rd in the world by TFE Times). Through his role as Director of the Severino Center for Technological Entrepreneurship, Jason manages a wide variety of programs to encourage entrepreneurship through contexts, communities, and mentorship opportunities. Jason has been directly involved in the launch of numerous programs including Foundry-RPI, Startup Tech Valley meetup, NSF Funded NYS Capital Region I-Corp Site Program (PI for grant). He has been recognized as one of the Albany Business Review’s 40 under 40 in the Capital Region and received the Center for Economic Growth (CEG) Technology Innovation Award. He also received the 2016 Upstate Venture Connect Campus Connector Award.
+<a class="reference external" href="https://www.linkedin.com/in/jasonkuruzovich/">LinkedIn</a>
+<a class="reference external" href="https://twitter.com/JasonKuruzovich">Twitter</a>
+<a class="reference external" href="mailto:kuruzj&#37;&#52;&#48;rpi&#46;edu">Email kuruzj<span>&#64;</span>rpi<span>&#46;</span>edu</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="assignments.html" title="previous page">Assignments</a>
+    <a class='right-next' id="next-link" href="../sessions/session1.html" title="next page"><span class="section-number">1. </span>Course Overview &amp; Introduction to the Data Science Lifecycle (08/31)</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jason Kuruzovich<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-32817743-6', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

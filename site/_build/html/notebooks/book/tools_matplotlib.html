@@ -1,0 +1,1746 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tools - matplotlib &#8212; MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to Introduction to Machine Learning Applications
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  OVERVIEW
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/schedule.html">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/preparation.html">
+   Before Class
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/in_class.html">
+   In Class
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/assignments.html">
+   Assignments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/capstone.html">
+   <strong>
+    The MS Business Analytics Capstone Course
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/capstone.html#prior-examples">
+   Prior Examples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/capstone.html#faculty">
+   Faculty
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  SESSIONS
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session1.html">
+   1. Course Overview &amp; Introduction to the Data Science Lifecycle (08/31)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session2.html">
+   2. Python Basics (09/03)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session3.html">
+   3. Python Basics  (First in Person Class, Tuesday follow Monday Schedule) (09/08)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session4.html">
+   4. Python conditionals, loops, functions, aggregating.  (09/10)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session5.html">
+   5. Python conditionals, loops, functions, aggregating (continued)  (09/14)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session6.html">
+   6. Python visualization, data manipulation , and feature creation. (09/17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session7.html">
+   7. Python visualization, data manipulation , and feature creation (continued) (09/21)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session8.html">
+   8. Overview of Modeling (09/24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session9.html">
+   9. Overview of Classification (09/28)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session10.html">
+   10. Overview of Classification (10/01)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session11.html">
+   11. Python and Regression (10/05)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session12.html">
+   12. Python and Regression (10/08)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session13.html">
+   13. Unsupervised Models (10/15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session14.html">
+   14. Midterm Exam (10/19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session15.html">
+   15. Time Series Analysis  (10/22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session16.html">
+   16. Time Series Analysis (10/26)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session16.html">
+   16. Time Series Analysis (10/26)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session17.html">
+   17. Text and NLP (10/29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session18.html">
+   18. Text and NLP (11/02)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session19.html">
+   19. Introduction to Deep Learning (11/05)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session19.html">
+   19. Introduction to Deep Learning (11/05)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session20.html">
+   20. Introduction to Deep Learning (11/09)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session21.html">
+   21. Introduction to Deep Learning (11/12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session22.html">
+   22. Image Data and Deep Learning (11/16)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session23.html">
+   23. NLP and Deep Learning (11/19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session24.html">
+   24. R and Machine Learning (11/23)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session25.html">
+   25. Big Data (11/30)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session26.html">
+   26. Open project questions.  (12/03)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session27.html">
+   27. Final Presentations (12/07)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session28.html">
+   28. Final Presentations  (12/10)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sessions/session29.html">
+   29. Final Exam (12/15)
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  NOTEBOOKS
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-intro-python/01-python-overview.html">
+   1. Overview of Python Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-intro-python/02-datastructures.html">
+   2. Introduction Datastructures (Varibles, Lists, Dictionaries, and Sets)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-intro-python/03-numpy.html">
+   3. Overview of Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-intro-python/04-pandas.html">
+   4. Introduction to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-intro-python/01-conditionals-loops.html">
+   5. Conditional Statements and Loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-intro-python/02-functions.html">
+   6. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-intro-python/03-null-values.html">
+   7. Null Values
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-intro-python/04-groupby.html">
+   8. Groupby and Pivot Tables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-intro-python/04-pivottable.html">
+   9. More Pivottables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-intro-python/05-kaggle-baseline.html">
+   10. Kaggle Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-viz-api-scraper/01-intro-api-twitter.html">
+   11. Introduction to APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-viz-api-scraper/02-intro-python-webmining.html">
+   12. Web Mining
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-viz-api-scraper/03-visualization-python-seaborn.html">
+   13. Introduction to Seaborn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-viz-api-scraper/04-strings-regular-expressions.html">
+   14. String Manipulation and Regular Expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-viz-api-scraper/05-features-dummies.html">
+   15. Feature Extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-viz-api-scraper/05-features-dummies.html#feature-preprocessing-with-scikit-learn">
+   16. Feature Preprocessing with Scikit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-viz-api-scraper/06-matplotlib.html">
+   17. MatplotLab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-intro-modeling/01-neural-networks.html">
+   18. Neural Networks and the Simplist XOR Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-intro-modeling/02-train-test-split.html">
+   19. Train Test Splits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-intro-modeling/03-intro-logistic-knn.html">
+   20. Classification with Scikit-learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-intro-modeling/04-knn.html">
+   21. KNN
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-regression/01-matrix-regression-gradient-decent-python.html">
+   22. Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-regression/02-regression-boston-housing-python.html">
+   23. Boston Housing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-regression/03-ridge-lasso-python.html">
+   24. Lasso Ridge Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-regression/04-stats-models.html">
+   25. Regression with Stats-Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-unsupervised/01-introduction-pca.html">
+   26. Introduction to Principal Component Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-unsupervised/02-pca2.html">
+   27. In Depth: Principal Component Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-unsupervised/03-kmeans.html">
+   28. k-Means Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-unsupervised/04-covid19.html">
+   29. Coronavirus Data Modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07-intro-timeseries/01-time-series.html">
+   30. Time Series Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07-intro-timeseries/02-forcasting-rossman.html">
+   31. Panel Data vs Time Series Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08-intro-nlp/01-titanic-features.html">
+   32. Basic Text Feature Creation in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08-intro-nlp/02-corpus-simple.html">
+   33. Introduction to Text Mining in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08-intro-nlp/03-scikit-learn-text.html">
+   34. Bag-of-Words Using Scikit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08-intro-nlp/04-what-cooking-python.html">
+   35. What’s Cooking in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08-intro-nlp/05-bag-popcorn-bag-words.html">
+   36. Bag of Words
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08-intro-nlp/07-fastai-imdb.html">
+   37. IMDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/00-neural-networks.html">
+   38. Neural Networks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/00-evaluation.html">
+   39. Evaluation of Classifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/01-tensorflow.html">
+   40. Tensorflow Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/01-tensorflow.html#tensorflow-tabular-data">
+   41. Tensorflow Tabular Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/01-tensorflow.html#tensorflow-nlp">
+   42. Tensorflow NLP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/03-pytorch-iris.html">
+   43. Revisiting IRIS with PyTorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/04-pytorch-explainer.html">
+   44. PyTorch Deep Explainer MNIST example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/05-pytorch-mnist.html">
+   45. PyTorch Deep Explainer MNIST example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/06-regression-bh-pytorch.html">
+   46. Revisting Boston Housing with Pytorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/07-titanic-fastai.html">
+   47. Titanic Fastai
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-deep-learning1/08-ludwig.html">
+   48. Ludwig
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10-big-data/01-intro-mapreduce.html">
+   49. Introduction to Map Reduce
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10-big-data/02-intro-spark.html">
+   50. Introduction to Spark
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  ASSIGNMENT STARTERS
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/assignment1/01starter.html">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/assignment2/hm.html">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/assignment3/hm.html">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/assignment4/hm.html">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/assignment5/hm.html">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/assignment6/hm.html">
+   Assignment 6
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Deep Learning
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/ageron/handson-ml2">
+   Hands On Machine Learning with Python
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/fastai/fastbook">
+   Fast.ai Book
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.tensorflow.org/tutorials">
+   Tensorflow Tutorials
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://pytorch.org/tutorials/">
+   Pytorch Tutorials
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.kaggle.com/learn/intro-to-deep-learning">
+   Kaggle Introduction to Deep Learning Course
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  IMPORTANT LINKS
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://lms.rpi.edu/">
+   RPI LMS
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://eurl.io/#KijTiY1Sa">
+   Webex Teams Discussion
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://eurl.io/#8TF4_qsE9">
+   Webex Teams Homework
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rensselaer.webex.com/meet/kuruzj">
+   Prof Kuruzovich Class Link
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rpi.box.com/s/g3wsswc1gvqxvamkuxee77eb4qugizvj">
+   Box File link (Sec01)
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rensselaer.webex.com/meet/morgat5">
+   Prof Morgan Class Link
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rpi.box.com/s/qdd5wlo58f5ludkxmb4yd17mgnyc0sbh">
+   Box File link (Sec02)
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/book/tools_matplotlib.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/rpi-techfundamentals/introml_website_fall_2020"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/rpi-techfundamentals/introml_website_fall_2020/issues/new?title=Issue%20on%20page%20%2Fnotebooks/book/tools_matplotlib.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/rpi-techfundamentals/introml_website_fall_2020/blob/master/site/notebooks/book/tools_matplotlib.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-contents">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-your-first-graph">
+   Plotting your first graph
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#line-style-and-color">
+   Line style and color
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#saving-a-figure">
+   Saving a figure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subplots">
+   Subplots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiple-figures">
+   Multiple figures
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pyplot-s-state-machine-implicit-vs-explicit">
+   Pyplot’s state machine: implicit
+   <em>
+    vs
+   </em>
+   explicit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pylab-vs-pyplot-vs-matplotlib">
+   Pylab
+   <em>
+    vs
+   </em>
+   Pyplot
+   <em>
+    vs
+   </em>
+   Matplotlib
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#drawing-text">
+   Drawing text
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#legends">
+   Legends
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#non-linear-scales">
+   Non linear scales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ticks-and-tickers">
+   Ticks and tickers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#polar-projection">
+   Polar projection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#d-projection">
+   3D projection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scatter-plot">
+   Scatter plot
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lines">
+   Lines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#histograms">
+   Histograms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#images">
+   Images
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#animations">
+   Animations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#saving-animations-to-video-files">
+   Saving animations to video files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-next">
+   What next?
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tools-matplotlib">
+<h1>Tools - matplotlib<a class="headerlink" href="#tools-matplotlib" title="Permalink to this headline">¶</a></h1>
+<p><em>This notebook demonstrates how to use the matplotlib library to plot beautiful graphs.</em></p>
+<div class="section" id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+ <p><div class="lev1"><a href="#Plotting-your-first-graph"><span class="toc-item-num">1&nbsp;&nbsp;</span>Plotting your first graph</a></div><div class="lev1"><a href="#Line-style-and-color"><span class="toc-item-num">2&nbsp;&nbsp;</span>Line style and color</a></div><div class="lev1"><a href="#Saving-a-figure"><span class="toc-item-num">3&nbsp;&nbsp;</span>Saving a figure</a></div><div class="lev1"><a href="#Subplots"><span class="toc-item-num">4&nbsp;&nbsp;</span>Subplots</a></div><div class="lev1"><a href="#Multiple-figures"><span class="toc-item-num">5&nbsp;&nbsp;</span>Multiple figures</a></div><div class="lev1"><a href="#Pyplot's-state-machine:-implicit-vs-explicit"><span class="toc-item-num">6&nbsp;&nbsp;</span>Pyplot's state machine: implicit <em>vs</em> explicit</a></div><div class="lev1"><a href="#Pylab-vs-Pyplot-vs-Matplotlib"><span class="toc-item-num">7&nbsp;&nbsp;</span>Pylab <em>vs</em> Pyplot <em>vs</em> Matplotlib</a></div><div class="lev1"><a href="#Drawing-text"><span class="toc-item-num">8&nbsp;&nbsp;</span>Drawing text</a></div><div class="lev1"><a href="#Legends"><span class="toc-item-num">9&nbsp;&nbsp;</span>Legends</a></div><div class="lev1"><a href="#Non-linear-scales"><span class="toc-item-num">10&nbsp;&nbsp;</span>Non linear scales</a></div><div class="lev1"><a href="#Ticks-and-tickers"><span class="toc-item-num">11&nbsp;&nbsp;</span>Ticks and tickers</a></div><div class="lev1"><a href="#Polar-projection"><span class="toc-item-num">12&nbsp;&nbsp;</span>Polar projection</a></div><div class="lev1"><a href="#3D-projection"><span class="toc-item-num">13&nbsp;&nbsp;</span>3D projection</a></div><div class="lev1"><a href="#Scatter-plot"><span class="toc-item-num">14&nbsp;&nbsp;</span>Scatter plot</a></div><div class="lev1"><a href="#Lines"><span class="toc-item-num">15&nbsp;&nbsp;</span>Lines</a></div><div class="lev1"><a href="#Histograms"><span class="toc-item-num">16&nbsp;&nbsp;</span>Histograms</a></div><div class="lev1"><a href="#Images"><span class="toc-item-num">17&nbsp;&nbsp;</span>Images</a></div><div class="lev1"><a href="#Animations"><span class="toc-item-num">18&nbsp;&nbsp;</span>Animations</a></div><div class="lev1"><a href="#Saving-animations-to-video-files"><span class="toc-item-num">19&nbsp;&nbsp;</span>Saving animations to video files</a></div><div class="lev1"><a href="#What-next?"><span class="toc-item-num">20&nbsp;&nbsp;</span>What next?</a></div></div>
+<div class="section" id="plotting-your-first-graph">
+<h2>Plotting your first graph<a class="headerlink" href="#plotting-your-first-graph" title="Permalink to this headline">¶</a></h2>
+<p>First we need to import the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Matplotlib can output graphs using various backend graphics libraries, such as Tk, wxPython, etc.  When running python using the command line, the graphs are typically shown in a separate window. In a Jupyter notebook, we can simply output the graphs within the notebook itself by running the <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code> magic command.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="c1"># matplotlib.use(&quot;TKAgg&quot;)  # use this instead in your program if you want to use Tk as your graphics backend.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s plot our first graph! :)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Yep, it’s as simple as calling the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function with some data, and then calling the <code class="docutils literal notranslate"><span class="pre">show</span></code> function!</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function is given one array of data, it will use it as the coordinates on the vertical axis, and it will just use each data point’s index in the array as the horizontal coordinate.
+You can also provide two arrays: one for the horizontal axis <code class="docutils literal notranslate"><span class="pre">x</span></code>, and the second for the vertical axis <code class="docutils literal notranslate"><span class="pre">y</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The axes automatically match the extent of the data.  We would like to give the graph a bit more room, so let’s call the <code class="docutils literal notranslate"><span class="pre">axis</span></code> function to change the extent of each axis <code class="docutils literal notranslate"><span class="pre">[xmin,</span> <span class="pre">xmax,</span> <span class="pre">ymin,</span> <span class="pre">ymax]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s plot a mathematical function. We use NumPy’s <code class="docutils literal notranslate"><span class="pre">linspace</span></code> function to create an array <code class="docutils literal notranslate"><span class="pre">x</span></code> containing 500 floats ranging from -2 to 2, then we create a second array <code class="docutils literal notranslate"><span class="pre">y</span></code> computed as the square of <code class="docutils literal notranslate"><span class="pre">x</span></code> (to learn about NumPy, read the <a class="reference internal" href="tools_numpy.html"><span class="doc std std-doc">NumPy tutorial</span></a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s a bit dry, let’s add a title, and x and y labels, and draw a grid.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Square function&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y = x**2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="line-style-and-color">
+<h2>Line style and color<a class="headerlink" href="#line-style-and-color" title="Permalink to this headline">¶</a></h2>
+<p>By default, matplotlib draws a line between consecutive points.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">140</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can pass a 3rd argument to change the line’s style and color.
+For example <code class="docutils literal notranslate"><span class="pre">&quot;g--&quot;</span></code> means “green dashed line”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;g--&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">140</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can plot multiple lines on one graph very simply: just pass <code class="docutils literal notranslate"><span class="pre">x1,</span> <span class="pre">y1,</span> <span class="pre">[style1],</span> <span class="pre">x2,</span> <span class="pre">y2,</span> <span class="pre">[style2],</span> <span class="pre">...</span></code></p>
+<p>For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;r-&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;g--&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">140</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or simply call <code class="docutils literal notranslate"><span class="pre">plot</span></code> multiple times before calling <code class="docutils literal notranslate"><span class="pre">show</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;g--&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">140</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also draw simple points instead of lines. Here’s an example with green dashes, red dotted line and blue triangles.
+Check out <a class="reference external" href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.plot">the documentation</a> for the full list of style &amp; color options.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;g--&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;r:&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;b^&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The plot function returns a list of <code class="docutils literal notranslate"><span class="pre">Line2D</span></code> objects (one for each line).  You can set extra attributes on these lines, such as the line width, the dash style or the alpha level.  See the full list of attributes in <a class="reference external" href="http://matplotlib.org/users/pyplot_tutorial.html#controlling-line-properties">the documentation</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">line1</span><span class="p">,</span> <span class="n">line2</span><span class="p">,</span> <span class="n">line3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;g--&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;r:&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;b^&#39;</span><span class="p">)</span>
+<span class="n">line1</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="n">line1</span><span class="o">.</span><span class="n">set_dash_capstyle</span><span class="p">(</span><span class="s2">&quot;round&quot;</span><span class="p">)</span>
+<span class="n">line3</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="saving-a-figure">
+<h2>Saving a figure<a class="headerlink" href="#saving-a-figure" title="Permalink to this headline">¶</a></h2>
+<p>Saving a figure to disk is as simple as calling <a class="reference external" href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.savefig"><code class="docutils literal notranslate"><span class="pre">savefig</span></code></a> with the name of the file (or a file object). The available image formats depend on the graphics backend you use.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;my_square_function.png&quot;</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="subplots">
+<h2>Subplots<a class="headerlink" href="#subplots" title="Permalink to this headline">¶</a></h2>
+<p>A matplotlib figure may contain multiple subplots. These subplots are organized in a grid. To create a subplot, just call the <code class="docutils literal notranslate"><span class="pre">subplot</span></code> function, and specify the number of rows and columns in the figure, and the index of the subplot you want to draw on (starting from 1, then left to right, and top to bottom). Note that pyplot keeps track of the currently active subplot (which you can get a reference to by calling <code class="docutils literal notranslate"><span class="pre">plt.gca()</span></code>), so when you call the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function, it draws on the <em>active</em> subplot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># 2 rows, 2 columns, 1st subplot = top left</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 2 rows, 2 columns, 2nd subplot = top right</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># 2 rows, 2 columns, 3rd subplot = bottow left</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># 2 rows, 2 columns, 4th subplot = bottom right</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Note that <code class="docutils literal notranslate"><span class="pre">subplot(223)</span></code> is a shorthand for <code class="docutils literal notranslate"><span class="pre">subplot(2,</span> <span class="pre">2,</span> <span class="pre">3)</span></code>.</p></li>
+</ul>
+<p>It is easy to create subplots that span across multiple grid cells like so:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># 2 rows, 2 columns, 1st subplot = top left</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 2 rows, 2 columns, 2nd subplot = top right</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 2 rows, *1* column, 2nd subplot = bottom</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you need more complex subplot positionning, you can use <code class="docutils literal notranslate"><span class="pre">subplot2grid</span></code> instead of <code class="docutils literal notranslate"><span class="pre">subplot</span></code>. You specify the number of rows and columns in the grid, then your subplot’s position in that grid (top-left = (0,0)), and optionally how many rows and/or columns it spans.  For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">colspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">colspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you need even more flexibility in subplot positioning, check out the <a class="reference external" href="http://matplotlib.org/users/gridspec.html">GridSpec documentation</a></p>
+</div>
+<div class="section" id="multiple-figures">
+<h2>Multiple figures<a class="headerlink" href="#multiple-figures" title="Permalink to this headline">¶</a></h2>
+<p>It is also possible to draw multiple figures. Each figure may contain one or more subplots. By default, matplotlib creates <code class="docutils literal notranslate"><span class="pre">figure(1)</span></code> automatically. When you switch figure, pyplot keeps track of the currently active figure (which you can get a reference to by calling <code class="docutils literal notranslate"><span class="pre">plt.gcf()</span></code>), and the active subplot of that figure becomes the current subplot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Square and Cube&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;y = x**4&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;y = x**5&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>      <span class="c1"># back to figure 1, current subplot is 212 (bottom)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;r:&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pyplot-s-state-machine-implicit-vs-explicit">
+<h2>Pyplot’s state machine: implicit <em>vs</em> explicit<a class="headerlink" href="#pyplot-s-state-machine-implicit-vs-explicit" title="Permalink to this headline">¶</a></h2>
+<p>So far we have used Pyplot’s state machine which keeps track of the currently active subplot. Every time you call the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function, pyplot just draws on the currently active subplot. It also does some more magic, such as automatically creating a figure and a subplot when you call <code class="docutils literal notranslate"><span class="pre">plot</span></code>, if they don’t exist yet. This magic is convenient in an interactive environment (such as Jupyter).</p>
+<p>But when you are writing a program, <em>explicit is better than implicit</em>. Explicit code is usually easier to debug and maintain, and if you don’t believe me just read the 2nd rule in the Zen of Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Fortunately, Pyplot allows you to ignore the state machine entirely, so you can write beautifully explicit code. Simply call the <code class="docutils literal notranslate"><span class="pre">subplots</span></code> function and use the figure object and the list of axes objects that are returned. No more magic! For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">fig1</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_top</span><span class="p">,</span> <span class="n">ax_bottom</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fig1</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">line1</span><span class="p">,</span> <span class="n">line2</span> <span class="o">=</span> <span class="n">ax_top</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;r-&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;b-&quot;</span><span class="p">)</span>
+<span class="n">line3</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax_bottom</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">),</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+<span class="n">ax_top</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">fig2</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For consistency, we will continue to use pyplot’s state machine in the rest of this tutorial, but we recommend using the object-oriented interface in your programs.</p>
+</div>
+<div class="section" id="pylab-vs-pyplot-vs-matplotlib">
+<h2>Pylab <em>vs</em> Pyplot <em>vs</em> Matplotlib<a class="headerlink" href="#pylab-vs-pyplot-vs-matplotlib" title="Permalink to this headline">¶</a></h2>
+<p>There is some confusion around the relationship between pylab, pyplot and matplotlib. It’s simple: matplotlib is the full library, it contains everything including pylab and pyplot.</p>
+<p>Pyplot provides a number of tools to plot graphs, including the state-machine interface to the underlying object-oriented plotting library.</p>
+<p>Pylab is a convenience module that imports matplotlib.pyplot and NumPy in a single name space. You will find many examples using pylab, but it is no longer recommended (because <em>explicit</em> imports are better than <em>implicit</em> ones).</p>
+</div>
+<div class="section" id="drawing-text">
+<h2>Drawing text<a class="headerlink" href="#drawing-text" title="Permalink to this headline">¶</a></h2>
+<p>You can call <code class="docutils literal notranslate"><span class="pre">text</span></code> to add text at any location in the graph. Just specify the horizontal and vertical coordinates and the text, and optionally some extra attributes.  Any text in matplotlib may contain TeX equation expressions, see <a class="reference external" href="http://matplotlib.org/users/mathtext.html">the documentation</a> for more details.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">px</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="n">py</span> <span class="o">=</span> <span class="n">px</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;b-&quot;</span><span class="p">,</span> <span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s2">&quot;Square function</span><span class="se">\n</span><span class="s2">$y = x^2$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">px</span> <span class="o">-</span> <span class="mf">0.08</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="s2">&quot;Beautiful point&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;heavy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="s2">&quot;x = </span><span class="si">%0.2f</span><span class="se">\n</span><span class="s2">y = </span><span class="si">%0.2f</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Note: <code class="docutils literal notranslate"><span class="pre">ha</span></code> is an alias for <code class="docutils literal notranslate"><span class="pre">horizontalalignment</span></code></p></li>
+</ul>
+<p>For more text properties, visit <a class="reference external" href="http://matplotlib.org/users/text_props.html#text-properties">the documentation</a>.</p>
+<p>It is quite frequent to annotate elements of a graph, such as the beautiful point above. The <code class="docutils literal notranslate"><span class="pre">annotate</span></code> function makes this easy: just indicate the location of the point of interest, and the position of the text, plus optionally some extra attributes for the text and the arrow.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;Beautiful point&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">px</span><span class="o">-</span><span class="mf">1.3</span><span class="p">,</span><span class="n">py</span><span class="o">+</span><span class="mf">0.5</span><span class="p">),</span>
+                           <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;heavy&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+                           <span class="n">arrowprops</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;facecolor&quot;</span><span class="p">:</span> <span class="s2">&quot;lightgreen&quot;</span><span class="p">})</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also add a bounding box around your text by using the <code class="docutils literal notranslate"><span class="pre">bbox</span></code> attribute:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">)</span>
+
+<span class="n">bbox_props</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s2">&quot;rarrow,pad=0.3&quot;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;lightblue&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">px</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="s2">&quot;Beautiful point&quot;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">bbox_props</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+
+<span class="n">bbox_props</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s2">&quot;round4,pad=1,rounding_size=0.2&quot;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;#EEEEFF&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s2">&quot;Square function</span><span class="se">\n</span><span class="s2">$y = x^2$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">bbox_props</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Just for fun, if you want an <a class="reference external" href="http://xkcd.com">xkcd</a>-style plot, just draw within a <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">plt.xkcd()</span></code> section:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">():</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">)</span>
+
+    <span class="n">bbox_props</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s2">&quot;rarrow,pad=0.3&quot;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;lightblue&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">px</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="s2">&quot;Beautiful point&quot;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">bbox_props</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+
+    <span class="n">bbox_props</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s2">&quot;round4,pad=1,rounding_size=0.2&quot;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;#EEEEFF&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s2">&quot;Square function</span><span class="se">\n</span><span class="s2">$y = x^2$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">bbox_props</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="legends">
+<h2>Legends<a class="headerlink" href="#legends" title="Permalink to this headline">¶</a></h2>
+<p>The simplest way to add a legend is to set a label on all lines, then just call the <code class="docutils literal notranslate"><span class="pre">legend</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;r--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Square function&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;g-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Cube function&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="non-linear-scales">
+<h2>Non linear scales<a class="headerlink" href="#non-linear-scales" title="Permalink to this headline">¶</a></h2>
+<p>Matplotlib supports non linear scales, such as logarithmic or logit scales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;logit&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;logit&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;symlog&#39;</span><span class="p">,</span> <span class="n">linthreshy</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;symlog&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ticks-and-tickers">
+<h2>Ticks and tickers<a class="headerlink" href="#ticks-and-tickers" title="Permalink to this headline">¶</a></h2>
+<p>The axes have little marks called “ticks”.  To be precise, “ticks” are the <em>locations</em> of the marks (eg. (-1, 0, 1)), “tick lines” are the small lines drawn at those locations, “tick labels” are the labels drawn next to the tick lines, and “tickers” are objects that are capable of deciding where to place ticks. The default tickers typically do a pretty good job at placing ~5 to 8 ticks at a reasonable distance from one another.</p>
+<p>But sometimes you need more control (eg. there are too many tick labels on the logit graph above). Fortunately, matplotlib gives you full control over ticks.  You can even activate minor ticks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Default ticks&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Manual ticks on the x-axis&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">minorticks_on</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">([</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Manual ticks and tick labels</span><span class="se">\n</span><span class="s2">(plus minor ticks) on the y-axis&quot;</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="polar-projection">
+<h2>Polar projection<a class="headerlink" href="#polar-projection" title="Permalink to this headline">¶</a></h2>
+<p>Drawing a polar graph is as easy as setting the <code class="docutils literal notranslate"><span class="pre">projection</span></code> attribute to <code class="docutils literal notranslate"><span class="pre">&quot;polar&quot;</span></code> when creating the subplot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">radius</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">radius</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;polar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">theta</span><span class="p">),</span> <span class="s2">&quot;g-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">theta</span><span class="p">),</span> <span class="s2">&quot;b-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="d-projection">
+<h2>3D projection<a class="headerlink" href="#d-projection" title="Permalink to this headline">¶</a></h2>
+<p>Plotting 3D graphs is quite straightforward. You need to import <code class="docutils literal notranslate"><span class="pre">Axes3D</span></code>, which registers the <code class="docutils literal notranslate"><span class="pre">&quot;3d&quot;</span></code> projection. Then create a subplot setting the <code class="docutils literal notranslate"><span class="pre">projection</span></code> to <code class="docutils literal notranslate"><span class="pre">&quot;3d&quot;</span></code>. This returns an <code class="docutils literal notranslate"><span class="pre">Axes3DSubplot</span></code> object, which you can use to call <code class="docutils literal notranslate"><span class="pre">plot_surface</span></code>, giving x, y, and z coordinates, plus optional attributes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+
+<span class="n">figure</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">subplot3d</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">surface</span> <span class="o">=</span> <span class="n">subplot3d</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">coolwarm</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Another way to display this same data is <em>via</em> a contour plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">coolwarm</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="scatter-plot">
+<h2>Scatter plot<a class="headerlink" href="#scatter-plot" title="Permalink to this headline">¶</a></h2>
+<p>To draw a scatter plot, simply provide the x and y coordinates of the points.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">rand</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may also optionally provide the scale of each point.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="mi">500</span> <span class="o">*</span> <span class="n">scale</span> <span class="o">**</span> <span class="mi">5</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And as usual there are a number of other attributes you can set, such as the fill and edge colors and the alpha level.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="mf">500.0</span> <span class="o">*</span> <span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">**</span> <span class="mi">5</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lines">
+<h2>Lines<a class="headerlink" href="#lines" title="Permalink to this headline">¶</a></h2>
+<p>You can draw lines simply using the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function, as we have done so far. However, it is often convenient to create a utility function that plots a (seemingly) infinite line across the graph, given a slope and an intercept. You can also use the <code class="docutils literal notranslate"><span class="pre">hlines</span></code> and <code class="docutils literal notranslate"><span class="pre">vlines</span></code> functions that plot horizontal and vertical line segments.
+For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">randn</span>
+
+<span class="k">def</span> <span class="nf">plot_line</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+    <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">axis</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">],</span> <span class="p">[</span><span class="n">xmin</span><span class="o">*</span><span class="n">slope</span><span class="o">+</span><span class="n">intercept</span><span class="p">,</span> <span class="n">xmax</span><span class="o">*</span><span class="n">slope</span><span class="o">+</span><span class="n">intercept</span><span class="p">],</span> <span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">plot_line</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">(),</span> <span class="n">slope</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">intercept</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;magenta&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="histograms">
+<h2>Histograms<a class="headerlink" href="#histograms" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Value&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+<span class="n">data2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="n">data3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">450</span><span class="p">)</span> <span class="o">+</span> <span class="mi">6</span>
+<span class="n">data4a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="mi">9</span>
+<span class="n">data4b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;bar hist&#39;</span><span class="p">)</span> <span class="c1"># default histtype=&#39;bar&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.65</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;stepfilled&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;stepfilled hist&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;step hist&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">data4a</span><span class="p">,</span> <span class="n">data4b</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.55</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;barstacked&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;barstacked a&#39;</span><span class="p">,</span> <span class="s1">&#39;barstacked b&#39;</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Value&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="images">
+<h2>Images<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h2>
+<p>Reading, generating and plotting images in matplotlib is quite straightforward.</p>
+<p>To read an image, just import the <code class="docutils literal notranslate"><span class="pre">matplotlib.image</span></code> module, and call its <code class="docutils literal notranslate"><span class="pre">imread</span></code> function, passing it the file name (or file object). This returns the image data, as a NumPy array. Let’s try this with the <code class="docutils literal notranslate"><span class="pre">my_square_function.png</span></code> image we saved earlier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;my_square_function.png&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have loaded a 288x432 image. Each pixel is represented by a 4-element array: red, green, blue, and alpha levels, stored as 32-bit floats between 0 and 1.  Now all we need to do is to call <code class="docutils literal notranslate"><span class="pre">imshow</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tadaaa! You may want to hide the axes when you are displaying an image:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s just as easy to generate your own image:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we did not provide RGB levels, the <code class="docutils literal notranslate"><span class="pre">imshow</span></code> function automatically maps values to a color gradient. By default, the color gradient goes from blue (for low values) to red (for high values), but you can select another color map.  For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;hot&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also generate an RGB image directly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">img</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]</span>
+<span class="n">img</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">img</span><span class="p">[:,</span> <span class="mi">20</span><span class="p">:]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since the <code class="docutils literal notranslate"><span class="pre">img</span></code> array is just quite small (20x30), when the <code class="docutils literal notranslate"><span class="pre">imshow</span></code> function displays it, it grows the image to the figure’s size. Imagine stretching the original image, leaving blanks between the original pixels. How does imshow fill the blanks? Well, by default, it just colors each blank pixel using the color of the nearest non-blank pixel. This technique can lead to pixelated images. If you prefer, you can use a different interpolation method, such as <a class="reference external" href="https://en.wikipedia.org/wiki/Bilinear_interpolation">bilinear interpolation</a> to fill the blank pixels. This leads to blurry edges, which many be nicer in some cases:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;bilinear&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="animations">
+<h2>Animations<a class="headerlink" href="#animations" title="Permalink to this headline">¶</a></h2>
+<p>Although matplotlib is mostly used to generate images, it is also capable of displaying animations. First, you need to import <code class="docutils literal notranslate"><span class="pre">matplotlib.animation</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.animation</span> <span class="k">as</span> <span class="nn">animation</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the following example, we start by creating data points, then we create an empty plot, we define the update function that will be called at every iteration of the animation, and finally we add an animation to the plot by creating a <code class="docutils literal notranslate"><span class="pre">FuncAnimation</span></code> instance.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">FuncAnimation</span></code> constructor takes a figure, an update function and optional arguments. We specify that we want a 50-frame long animation, with 100ms between each frame. At each iteration, <code class="docutils literal notranslate"><span class="pre">FuncAnimation</span></code> calls our update function and passes it the frame number <code class="docutils literal notranslate"><span class="pre">num</span></code> (from 0 to 49 in our case) followed by the extra arguments that we specified with <code class="docutils literal notranslate"><span class="pre">fargs</span></code>.</p>
+<p>Our update function simply sets the line data to be the first <code class="docutils literal notranslate"><span class="pre">num</span></code> data points (so the data gets drawn gradually), and just for fun we also add a small random number to each data point so that the line appears to wiggle.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span> <span class="c1"># start with an empty plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;b-&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="s2">&quot;b-&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Marvelous animation&quot;</span><span class="p">)</span>
+
+<span class="c1"># this function will be called at every iteration</span>
+<span class="k">def</span> <span class="nf">update_line</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="n">num</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span> <span class="o">/</span> <span class="mi">25</span><span class="p">)</span>  <span class="c1"># we only plot the first `num` data points.</span>
+    <span class="k">return</span> <span class="n">line</span><span class="p">,</span>
+
+<span class="n">line_ani</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update_line</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">fargs</span><span class="o">=</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">line</span><span class="p">),</span> <span class="n">interval</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c1"># call close() to avoid displaying the static plot</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, let’s display the animation. One option is to convert it to HTML5 code (using a <code class="docutils literal notranslate"><span class="pre">&lt;video&gt;</span></code> tag), and render this code using <code class="docutils literal notranslate"><span class="pre">IPython.display.HTML</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="n">line_ani</span><span class="o">.</span><span class="n">to_html5_video</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, we can display the animation using a nice little HTML/Javascript interactive widget:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">line_ani</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can configure Matplotlib to use this widget by default when rendering animations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;animation&#39;</span><span class="p">,</span> <span class="n">html</span><span class="o">=</span><span class="s1">&#39;jshtml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>After that, you don’t even need to use <code class="docutils literal notranslate"><span class="pre">IPython.display.HTML</span></code> anymore:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update_line</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">fargs</span><span class="o">=</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">line</span><span class="p">),</span> <span class="n">interval</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Warning:</strong> if you save the notebook along with its outputs, then the animations will take up a lot of space.</p>
+</div>
+<div class="section" id="saving-animations-to-video-files">
+<h2>Saving animations to video files<a class="headerlink" href="#saving-animations-to-video-files" title="Permalink to this headline">¶</a></h2>
+<p>Matplotlib relies on 3rd-party libraries to write videos such as <a class="reference external" href="https://www.ffmpeg.org/">FFMPEG</a> or <a class="reference external" href="https://imagemagick.org/">ImageMagick</a>. In this example we will be using FFMPEG so be sure to install it first. To save the animation to the GIF format, you would need ImageMagick.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Writer</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">writers</span><span class="p">[</span><span class="s1">&#39;ffmpeg&#39;</span><span class="p">]</span>
+<span class="n">writer</span> <span class="o">=</span> <span class="n">Writer</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">artist</span><span class="o">=</span><span class="s1">&#39;Me&#39;</span><span class="p">),</span> <span class="n">bitrate</span><span class="o">=</span><span class="mi">1800</span><span class="p">)</span>
+<span class="n">line_ani</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;my_wiggly_animation.mp4&#39;</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">writer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="what-next">
+<h2>What next?<a class="headerlink" href="#what-next" title="Permalink to this headline">¶</a></h2>
+<p>Now you know all the basics of matplotlib, but there are many more options available. The best way to learn more, is to visit the <a class="reference external" href="http://matplotlib.org/gallery.html">gallery</a>, look at the images, choose a plot that you are interested in, then just copy the code in a Jupyter notebook and play around with it.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/book"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jason Kuruzovich<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-32817743-6', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>
